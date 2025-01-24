@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <!-- Adding Google Font for romantic styling -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Dancing Script', cursive; /* Apply romantic font */
+            background-color: #ffe6e6;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            top: 30vh;
+        }
+
+       
+
+        h1 {
+            font-size: 4rem;
+            color: #e91e63;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+            button:hover {
+                transform: scale(1.1);
+            }
+
+        #yes-btn {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        #no-btn {
+            background-color: #f44336;
+            color: white;
+        }
+
+        #response {
+            margin-top: 20px;
+            font-size: 2.9rem;
+            color: #e91e63;
+            display: none;
+        }
+
+        /* Falling roses and hearts */
+        .emoji {
+            position: absolute;
+            font-size: 2rem;
+            animation: fall 5s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+       
+
+        <!-- Question -->
+        <h1>Will you be my valentine?</h1>
+
+        <!-- Buttons -->
+        <div class="buttons">
+            <button id="yes-btn">Yes</button>
+            <button id="no-btn">No</button>
+        </div>
+        <div id="response"></div>
+    </div>
+
+    <!-- Falling Roses and Hearts -->
+    <script>
+        const container = document.body;
+
+        // Generate 30 falling emojis
+        const emojis = ["🌹", "❤️"];
+        for (let i = 0; i < 30; i++) {
+            const emoji = document.createElement("div");
+            emoji.classList.add("emoji");
+            emoji.style.left = Math.random() * 100 + "%"; // Random horizontal position
+            emoji.style.animationDuration = Math.random() * 3 + 4 + "s"; // Random fall duration
+            emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            container.appendChild(emoji);
+        }
+
+        // Button logic
+        const yesBtn = document.getElementById("yes-btn");
+        const noBtn = document.getElementById("no-btn");
+        const response = document.getElementById("response");
+
+        yesBtn.addEventListener("click", () => {
+            response.style.display = "block";
+            response.textContent = "💕 I love you everyday! 💕";
+        });
+
+        noBtn.addEventListener("click", () => {
+            response.style.display = "block";
+            response.textContent = "You're my valentine every day, so you're stuck with me!😂❤";
+        });
+    </script>
+</body>
+</html>
